@@ -7,14 +7,14 @@ require 'rosebud/validations'
 require 'rosebud/validator'
 require 'rosebud/version'
 
+I18n.load_path << "#{File.dirname(__FILE__)}/rosebud/locale/en.yml"
+I18n.reload!
+
 Dir[File.expand_path('../rosebud/validations/*.rb', __FILE__)].each do |path|
   require(path)
 end
 
 module Rosebud
-  I18n.load_path << "#{File.dirname(__FILE__)}/rosebud/locale/en.yml"
-  I18n.reload!
-  
   def self.included(base)
     base.extend(ClassMethods)
     base.send(:include, Errawr::Rails::Renderable.render_with(Errawr::Rails::Renderers::JSON))
@@ -30,7 +30,4 @@ module Rosebud
       end
     end
   end
-  
-  Errawr.register!(:presence)
-  Errawr.register!(:type)
 end
