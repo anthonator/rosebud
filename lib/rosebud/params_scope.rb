@@ -15,9 +15,12 @@ module Rosebud
       validate(name, @params[name], validations)
     end
     
-    def optional(name, validations = {})
+    def optional(name, options = {})
       name = name.to_sym
-      validate(name, @params[name], validations)
+      if (@params[name].nil? || @params[name] == '') && options.has_key?(:default)
+        @params[name] = options.delete(:default)
+      end
+      validate(name, @params[name], options)
     end
     
     private

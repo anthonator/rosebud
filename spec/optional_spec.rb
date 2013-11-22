@@ -7,7 +7,7 @@ describe Rosebud::ParamsScope do
       extend(RSpec::Rails::ControllerExampleGroup::BypassRescue)
       
       params do
-        optional :name, type: Integer
+        optional :name, type: Integer, default: 1234
       end
       
       def index
@@ -27,6 +27,11 @@ describe Rosebud::ParamsScope do
         error: 'invalid_parameter',
         description: 'invalid parameter: name'
       }.to_json
+    end
+    
+    it 'should add a default value to the params' do
+      get :index
+      controller.params[:name].should == 1234
     end
   end
 end
