@@ -99,6 +99,8 @@ en:
     length:
       message: %{length} characters is too long for %{param}, should be less than or equal to %{max_length}
       http_status: 400
+      metadata:
+        additional_info: Kick him in the shins!
 ```
 
 Add a validation using your custom validator:
@@ -122,7 +124,8 @@ The following error will be rendered for the ```name``` parameter when provided 
 ```json
 {
   "error":       "length",
-  "description": "3 characters is too long for name, should be less than or equal to 2"
+  "description": "3 characters is too long for name, should be less than or equal to 2",
+  "additional_info": "Kcik him in the shins!"
 }
 ```
 
