@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = Rosebud::VERSION
   spec.authors       = ['Anthony Smith']
   spec.email         = ['anthony@sticksnleaves.com']
-  spec.description   = %q{Validate your Rails API parameters}
-  spec.summary       = %q{Rails API parameter validation}
+  spec.description   = %q{Rails API parameter validation}
+  spec.summary       = %q{Finally! An easy way to validate your Rails API parameters.}
   spec.homepage      = 'http://www.github.com/anthonator/rosebud'
   spec.license       = 'MIT'
 
