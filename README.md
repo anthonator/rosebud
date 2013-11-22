@@ -32,7 +32,7 @@ end
 
 ### Validating Parameters
 
-To validate parameters specify a ```params``` block and either specify whether the params are either required or optional.
+To validate parameters specify a ```params``` block and choose whether the params are required or optional.
 
 ```ruby
 class Api::V1::SomeController < Api::V1::ApplicationController
@@ -91,7 +91,7 @@ end
 Rosebud::Validations.register_validator!(:length, MyLengthValidator)
 ```
 
-Rosebud uses the [Errawr::Rails](http://www.github.com/anthonator/errawr-rails) to raise and render localised errors. Add your custom error message to your locale file.
+Rosebud uses the [Errawr::Rails](http://www.github.com/anthonator/errawr-rails) gem to raise and render localised errors. Add your custom error message to your locale file.
 
 ```yaml
 en:
@@ -101,7 +101,7 @@ en:
       http_status: 400
 ```
 
-Added a validation using your custom validator:
+Add a validation using your custom validator:
 
 ```ruby
 class Api::V1::SomeController < Api::V1::ApplicationController
@@ -117,7 +117,7 @@ class Api::V1::SomeController < Api::V1::ApplicationController
 end
 ```
 
-This following error will be rendered for the ```name``` parameter when provided with the value of ```abc```:
+The following error will be rendered for the ```name``` parameter when provided with a value of ```abc```:
 
 ```json
 {
