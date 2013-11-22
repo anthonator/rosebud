@@ -1,0 +1,10 @@
+en:
+  errawr:
+    presence:
+      message: "missing parameter: %{param}"
+      name: "missing_parameter"
+      http_status: 400
+    type:
+      message: "invalid parameter: %{param}"
+      name: "invalid_parameter"
+      http_status: 400
