@@ -8,3 +8,7 @@ en:
       message: "invalid parameter: %{param}"
       name: "invalid_parameter"
       http_status: 400
+    regex:
+      message: "invalid parameter: %{param}"
+      name: "invalid_parameter"
+      http_status: 400
