@@ -23,9 +23,9 @@ platforms :jruby do
 end
 
 platforms :rbx do
+  gem 'psych'
   gem 'racc'
-  gem 'rubinius-coverage', github: 'rubinius/rubinius-coverage'
-  gem 'rubysl'
+  gem 'rubysl', '~> 2.0'
 end
 
 group :development do
