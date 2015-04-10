@@ -24,10 +24,6 @@ end
 
 platforms :rbx do
   gem 'psych'
-  gem 'racc'
-  gem 'rubysl', '~> 2.0'
-  gem 'rubysl-test-unit'
-  gem 'rubinius-coverage'
 end
 
 group :development do
