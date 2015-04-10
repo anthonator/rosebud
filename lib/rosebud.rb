@@ -17,9 +17,12 @@ end
 module Rosebud
   def self.included(base)
     base.extend(ClassMethods)
-    base.send(:include, Errawr::Rails::Renderable.render_with(Errawr::Rails::Renderers::JSON))
+
+    unless base.ancestors.include?(Errawr::Rails)
+      base.send(:include, Errawr::Rails::Renderable.render_with(Errawr::Rails::Renderers::JSON))
+    end
   end
-  
+
   module ClassMethods
     def params(action = :all, &block)
       action = action.to_s
