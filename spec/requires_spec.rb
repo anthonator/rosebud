@@ -5,28 +5,28 @@ describe Rosebud::ParamsScope do
     controller(ApplicationController) do
       include Rosebud
       extend(RSpec::Rails::ControllerExampleGroup::BypassRescue)
-      
+
       params do
         requires :name
       end
-      
+
       def index
         render nothing: true
       end
     end
-    
+
     it 'should render a missing parameter error' do
       get :index
-      response.status.should == 400
-      response.body.should == {
+      expect(response.status).to eq(400)
+      expect(response.body).to eq({
         error: 'missing_parameter',
         description: 'missing parameter: name'
-      }.to_json
+      }.to_json)
     end
-    
+
     it 'should render 200 if a paremeter is not missing' do
       get :index, name: 'Anthony'
-      response.status.should == 200
+      expect(response.status).to eq(200)
     end
   end
 end
