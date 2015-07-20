@@ -22,10 +22,7 @@ platforms :jruby do
   gem 'activerecord-jdbcsqlite3-adapter'
 end
 
-platforms :rbx do
-  gem 'psych'
-end
-
 group :development do
   gem 'coveralls', require: false
+  gem 'test-unit'
 end
