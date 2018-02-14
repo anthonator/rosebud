@@ -7,7 +7,7 @@ rails_version = case ENV['RAILS_VERSION'] || 'default'
 when 'master'
   { git: 'https://github.com/rails/rails.git' }
 when 'default'
-  '~> 4.0'
+  '~> 5.1'
 else
   "~> #{ENV['RAILS_VERSION']}"
 end
@@ -24,5 +24,4 @@ end
 
 group :development do
   gem 'coveralls', require: false
-  gem 'test-unit'
 end
