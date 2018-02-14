@@ -37,14 +37,14 @@ To validate parameters specify a ```params``` block and choose whether the param
 ```ruby
 class Api::V1::SomeController < Api::V1::ApplicationController
   include Rosebud
-  
+
   params do
     requires :name
     optional :phone_number, regex: /\d{10}/, default: '5555555555'
   end
-  
+
   ...
-  
+
 end
 ```
 
@@ -53,11 +53,11 @@ It's also possible to define validations for a specific action.
 ```ruby
 class Api::V1::SomeController < Api::V1::ApplicationController
   include Rosebud
-  
+
   params :create do
     ...
   end
-  
+
   def create
     ...
   end
@@ -108,11 +108,11 @@ Add a validation using your custom validator:
 ```ruby
 class Api::V1::SomeController < Api::V1::ApplicationController
   include Rosebud
-  
+
   params :create do
     requires :name, length: 2
   end
-  
+
   def create
     ...
   end
@@ -125,7 +125,7 @@ The following error will be rendered for the ```name``` parameter when provided 
 {
   "error":       "length",
   "description": "3 characters is too long for name, should be less than or equal to 2",
-  "additional_info": "Kcik him in the shins!"
+  "additional_info": "Kick him in the shins!"
 }
 ```
 
