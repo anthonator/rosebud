@@ -4,14 +4,13 @@ describe Rosebud::ParamsScope do
   context 'RequiresController', type: :controller do
     controller(ApplicationController) do
       include Rosebud
-      extend(RSpec::Rails::ControllerExampleGroup::BypassRescue)
 
       params do
         requires :name
       end
 
       def index
-        render nothing: true
+        head :ok
       end
     end
 
@@ -25,7 +24,7 @@ describe Rosebud::ParamsScope do
     end
 
     it 'should render 200 if a paremeter is not missing' do
-      get :index, name: 'Anthony'
+      get :index, params: { name: 'Anthony' }
       expect(response.status).to eq(200)
     end
   end

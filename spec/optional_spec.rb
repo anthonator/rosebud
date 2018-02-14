@@ -1,17 +1,16 @@
 require 'spec_helper'
 
 describe Rosebud::ParamsScope do
-  context 'RequiresController', type: :controller do
+  context 'OptionalController', type: :controller do
     controller(ApplicationController) do
       include Rosebud
-      extend(RSpec::Rails::ControllerExampleGroup::BypassRescue)
 
       params do
         optional :name, type: Integer, default: 1234
       end
 
       def index
-        render nothing: true
+        head :ok
       end
     end
 
@@ -21,7 +20,7 @@ describe Rosebud::ParamsScope do
     end
 
     it 'should render an error if validation fails' do
-      get :index, name: 'A'
+      get :index, params: { name: 'A' }
       expect(response.status).to_not eq(200)
       expect(response.body).to eq({
         error: 'invalid_parameter',
