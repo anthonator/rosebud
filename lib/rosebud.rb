@@ -26,7 +26,7 @@ module Rosebud
   module ClassMethods
     def params(action = :all, &block)
       action = action.to_s
-      before_filter do
+      before_action do
         if action == 'all' || params[:action] == action
           ParamsScope.new(self, params, &block)
         end
