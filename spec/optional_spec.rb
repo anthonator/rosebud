@@ -20,7 +20,8 @@ describe Rosebud::ParamsScope do
     end
 
     it 'should render an error if validation fails' do
-      get :index, params: { name: 'A' }
+      get :index, params: { name: 'Anthony' } if Rails.version > '4.2'
+      get :index, name: 'Anthony' if Rails.version < '5'
       expect(response.status).to_not eq(200)
       expect(response.body).to eq({
         error: 'invalid_parameter',

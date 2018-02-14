@@ -24,7 +24,8 @@ describe Rosebud::ParamsScope do
     end
 
     it 'should render 200 if a paremeter is not missing' do
-      get :index, params: { name: 'Anthony' }
+      get :index, params: { name: 'Anthony' } if Rails.version > '4.2'
+      get :index, name: 'Anthony' if Rails.version < '5'
       expect(response.status).to eq(200)
     end
   end
